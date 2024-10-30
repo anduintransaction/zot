@@ -12,15 +12,16 @@ type BaseConfig struct {
 }
 
 type ExtensionConfig struct {
-	Search  *SearchConfig
-	Sync    *sync.Config
-	Metrics *MetricsConfig
-	Scrub   *ScrubConfig
-	Lint    *LintConfig
-	UI      *UIConfig
-	Mgmt    *MgmtConfig
-	APIKey  *APIKeyConfig
-	Trust   *ImageTrustConfig
+	Search      *SearchConfig
+	Sync        *sync.Config
+	Metrics     *MetricsConfig
+	Scrub       *ScrubConfig
+	Lint        *LintConfig
+	UI          *UIConfig
+	Mgmt        *MgmtConfig
+	APIKey      *APIKeyConfig
+	Trust       *ImageTrustConfig
+	BlobPresign *BlobPresignConfig
 }
 
 type ImageTrustConfig struct {

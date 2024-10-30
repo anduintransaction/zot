@@ -1,0 +1,60 @@
+{
+  "extensions": {
+    "mgmt": {
+      "enable": true
+    },
+    "search": {
+      "enable": true
+    },
+    "ui": {
+      "enable": true
+    },
+    "blobpresign": {
+      "enable": true
+    }
+  },
+  "http": {
+    "accessControl": {
+      "adminPolicy": {
+        "actions": [
+          "read",
+          "create",
+          "update",
+          "delete"
+        ],
+        "users": [
+          "admin"
+        ]
+      },
+      "repositories": {
+        "**": {
+          "defaultPolicy": []
+        }
+      }
+    },
+    "address": "0.0.0.0",
+    "auth": {
+      "htpasswd": {
+        "path": "./htpasswd"
+      }
+    },
+    "port": "5000"
+  },
+  "log": {
+    "level": "info"
+  },
+  "storage": {
+    "rootDirectory": "/tmp/zot",
+    "dedupe": false,
+    "storageDriver": {
+      "name": "s3",
+      "region": "ap-southeast-1",
+      "regionendpoint": "localhost:9000",
+      "bucket": "zotregistry",
+      "secure": false,
+      "skipverify": true,
+      "accesskey": "zotregistry",
+      "secretkey": "zotpassword"
+    }
+  }
+}
