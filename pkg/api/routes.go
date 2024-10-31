@@ -216,7 +216,7 @@ func (rh *RouteHandler) SetupRoutes() {
 	// last should always be UI because it will setup a http.FileServer and paths will be resolved by this FileServer.
 	ext.SetupUIRoutes(rh.c.Config, rh.c.Router, rh.c.Log)
 
-	ext.SetupBlobPresignRoutes(rh.c.Config, prefixedRouter, clusterRouteProxy, rh.c.StoreController, rh.c.MetaDB, rh.c.Log)
+	ext.SetupBlobPresignRoutes(rh.c.Config, prefixedDistSpecRouter, clusterRouteProxy, rh.c.StoreController, rh.c.MetaDB, rh.c.Log)
 }
 
 func getCORSHeadersHandler(allowOrigin string) func(http.HandlerFunc) http.HandlerFunc {

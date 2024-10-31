@@ -50,6 +50,7 @@
       "name": "s3",
       "region": "ap-southeast-1",
       "regionendpoint": "localhost:9000",
+      "forcePathStyle": true,
       "bucket": "zotregistry",
       "secure": false,
       "skipverify": true,
