@@ -6,6 +6,7 @@ import (
 	"context"
 	"errors"
 	"io"
+	"net/http"
 	"os"
 	"path"
 	"sort"
@@ -486,4 +487,8 @@ func ValidateHardLink(rootDir string) error {
 	}
 
 	return os.RemoveAll(path.Join(rootDir, "duphardlinkcheck.txt"))
+}
+
+func (driver *Driver) RedirectURL(r *http.Request, path string) (string, error) {
+	return "", errors.ErrUnsupported
 }

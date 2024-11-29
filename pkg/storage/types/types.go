@@ -3,6 +3,7 @@ package types
 import (
 	"context"
 	"io"
+	"net/http"
 	"time"
 
 	storagedriver "github.com/distribution/distribution/v3/registry/storage/driver"
@@ -69,6 +70,7 @@ type ImageStore interface { //nolint:interfacebloat
 	PopulateStorageMetrics(interval time.Duration, sch *scheduler.Scheduler)
 	VerifyBlobDigestValue(repo string, digest godigest.Digest) error
 	GetAllDedupeReposCandidates(digest godigest.Digest) ([]string, error)
+	GenPresignLink(r *http.Request, repo string, digest godigest.Digest) (string, error)
 }
 
 type Driver interface { //nolint:interfacebloat
@@ -86,4 +88,5 @@ type Driver interface { //nolint:interfacebloat
 	Move(sourcePath string, destPath string) error
 	SameFile(path1, path2 string) bool
 	Link(src, dest string) error
+	RedirectURL(r *http.Request, path string) (string, error)
 }

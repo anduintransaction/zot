@@ -3,6 +3,7 @@ package s3
 import (
 	"context"
 	"io"
+	"net/http"
 
 	// Add s3 support.
 	"github.com/distribution/distribution/v3/registry/storage/driver"
@@ -112,4 +113,8 @@ from cache.
 */
 func (driver *Driver) Link(src, dest string) error {
 	return driver.store.PutContent(context.Background(), dest, []byte{})
+}
+
+func (driver *Driver) RedirectURL(r *http.Request, path string) (string, error) {
+	return driver.store.RedirectURL(r, path)
 }
